@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Variabler i JavaScript</h1>
+    <p>Hei, <span id="name"></span> (<span id="age">?</span> år)</p>
 
     <script>
         //DEKLARERE VARIABLER
@@ -16,7 +17,15 @@
          */
         const firstname = "Téa";
         console.log(firstname);
+        const lastname = "Steen";
+        //Skriv ut firstname-verdi til HTML-element med id name:
+        //Vi bruker kontatinering, altså slår sammen variabler og tekst, for å skrive ut fornavn + etternavn:
+        document.getElementById("name").innerHTML = firstname + " " + lastname;
 
+        //DEKLARERE EN VARIABEL FOR ALDER
+        const birthYear = 2001;
+        let age = 2026 - birthYear;
+        document.getElementById("age").innerHTML = age;
     </script>
 </body>
 </html>
