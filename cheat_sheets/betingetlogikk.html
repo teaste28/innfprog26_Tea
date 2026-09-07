@@ -21,9 +21,14 @@
         }
 
         //IF-test som sjekker om brukernavn og passord er riktig, og gjør klar login:
-        if(username === "teaw" && password === "passord123"){
+        if(username === "teaw" && password === "passord123") {
         loggedIn = true
         console.log(loggedIn)
+        }
+
+        //Sjekk om en bruker er logget inn, og oppdater grensesnitt hvis den er det:
+        if(loggedIn) {
+            document.getElementById("loginStatus").innerHTML = "Hei, Téa!"
         }
     </script>
 </body>
