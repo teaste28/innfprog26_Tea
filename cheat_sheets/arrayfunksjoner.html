@@ -15,6 +15,14 @@
     <h2>Array etter slettemetoder er kjørt</h2>
     <p id="deleted"></p>
 
+    <h2>Sortering av tekst</h2>
+    <p>Sortert A-Å: <span id="sortAZ"></span></p>
+    <p>Sortert Å-A <span id="sortZA"></span></p>
+
+    <h2>Sortering av tall</h2>
+    <p>Sortert lavt til høyt: <span id="sort09"></span></p>
+    <p>Sortert høyt til lavt: <span id="sort90"></span></p>
+
     <script>
         const books = [
             "Silver Eyes", 
@@ -64,9 +72,23 @@
         //Hvordan sjekke om en verdi finnes i en array:
         const bookExists = books.includes("Fourth Wing")
         console.log("Finnes Fourth Wing? ", bookExists)
-        //Hvis 
-
+      
         document.getElementById("deleted").innerHTML = books.join(", ")
+
+        //Sortere en array fra A til Å (funker kun med strings):
+        books.sort()
+        document.getElementById("sortAZ").innerHTML = books.join(", ")
+
+        //Sortere en array fra Å til A:
+        books.reverse()
+        document.getElementById("sortZA").innerHTML = books.join(", ")
+
+        //Sortere en array med tall, tall har aldri "", da blir det til string:
+        const tall = [99, 6, 34, 8, 9, 8, 111, 44, 83, 29, 6000, 15, 69, 366, 42]
+        tall.sort(function(a, b) { return a - b })
+        document.getElementById("sort09").innerHTML = tall.join(", ")
+        tall.sort(function(a, b) { return b - a })
+        document.getElementById("sort90").innerHTML = tall.join(", ")
     </script>
 </body>
 </html>
