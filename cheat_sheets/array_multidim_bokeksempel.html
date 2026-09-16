@@ -10,6 +10,13 @@
     <p>Henter tittel på bok 3: <span id="book3Title"></span></p>
     <p>Henter forfatter 2 på bok 2: <span id="book2Author2"></span></p>
 
+    <h2>Bokregister</h2>
+    <section id="books">
+        <p>Laster inn bøker...</p>
+
+
+    </section>
+
     <script>
         const bokregister = [
             {
@@ -39,6 +46,13 @@
         //Henter forfatter 2 for bok 2:
         document.getElementById("book2Author2").innerHTML = bokregister[1].author[1]
 
+
+        //Bruker .map for å hente alle bøker, og bygger HTML i booksHTML-variabelen
+            let booksHTML = ""
+            bokregister.map(b => { booksHTML += `<article><h3>${b.title}</h3></article>` })
+            console.log(booksHTML)
+
+            document.getElementById("books").innerHTML = booksHTML
     </script>
 </body>
 </html>
