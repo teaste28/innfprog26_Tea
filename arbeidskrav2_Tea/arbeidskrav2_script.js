@@ -29,3 +29,21 @@ const grades = [
     { letter: "E", score: 2 },
     { letter: "F", score: 1}
 ]
+
+
+//Skriv ut antall studenter i arrayen students til #studentCount
+document.getElementById("studentCount").innerHTML = students.length
+
+//Beregn og skriv ut gjennomsnittskarakter (som bokstavkarakter, rund gjennomsnittet opp) til #averageGrade
+
+
+//Tell og skriv ut antall av hver karakter til #gradeA, #gradeB og så videre
+document.getElementById("gradeA").innerHTML = student.grade.indexOf("6").length
+
+//Beregn og skriv ut gjennomsnittsalder (rund av til to desimaler) til #averageAge
+
+
+//Tell og skriv ut antallet studenter som kommer rett fra videregående til #highSchool. Regelen for hvem som kommer rett fra videregående er at de er 19 år gamle.
+
+
+//Tell og skriv ut antallet studenter som har yrkeserfaring til #workExperience. Regelen for hvem som har yrkeserfaring er at workExperience er 1 eller høyere.
