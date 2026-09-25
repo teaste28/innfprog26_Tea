@@ -38,7 +38,7 @@ document.getElementById("studentCount").innerHTML = students.length
 
 
 //Tell og skriv ut antall av hver karakter til #gradeA, #gradeB og så videre
-document.getElementById("gradeA").innerHTML = student.grade.indexOf("6").length
+document.getElementById("gradeA").innerHTML = students.grade.indexOf("6").length
 
 //Beregn og skriv ut gjennomsnittsalder (rund av til to desimaler) til #averageAge
 
