@@ -35,13 +35,36 @@ const grades = [
 document.getElementById("studentCount").innerHTML = students.length
 
 //Beregn og skriv ut gjennomsnittskarakter (som bokstavkarakter, rund gjennomsnittet opp) til #averageGrade
+let totalGrades = 0
+students.grade.map(grade => {totalGrades += grade}) 
+    console.log(totalGrades)
+//+= students.age.map //trenger å hente alle grades i arrayen og plusse dem sammen
 
+let average = totalGrades / students.length
+    console.log(average)
+
+    //Viser resultatet av average som bokstavkarakter rundet opp.
+if (average > 5){
+    document.getElementById("averageGrade").innerHTML = "A"
+}else if (average > 4){
+    document.getElementById("averageGrade").innerHTML = "B"
+}else if (average > 3){
+    document.getElementById("averageGrade").innerHTML = "C"
+}else if (average > 2){
+    document.getElementById("averageGrade").innerHTML = "D"
+}else if (average > 1){
+    document.getElementById("averageGrade").innerHTML = "E"
+}else{
+    document.getElementById("averageGrade").innerHTML = "F"
+}
 
 //Tell og skriv ut antall av hver karakter til #gradeA, #gradeB og så videre
-document.getElementById("gradeA").innerHTML = students.grade.indexOf("6").length
+//document.getElementById("gradeA").innerHTML = students.grade.indexOf("6").length
+
 
 //Beregn og skriv ut gjennomsnittsalder (rund av til to desimaler) til #averageAge
-
+let totalAge = students.age 
+let averageAge = totalAge / students.length
 
 //Tell og skriv ut antallet studenter som kommer rett fra videregående til #highSchool. Regelen for hvem som kommer rett fra videregående er at de er 19 år gamle.
 
