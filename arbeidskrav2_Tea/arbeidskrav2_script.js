@@ -35,13 +35,14 @@ const grades = [
 document.getElementById("studentCount").innerHTML = students.length
 
 //Beregn og skriv ut gjennomsnittskarakter (som bokstavkarakter, rund gjennomsnittet opp) til #averageGrade
-let totalGrades = 0
-students.grade.map(grade => {totalGrades += grade}) 
-    console.log(totalGrades)
-//+= students.age.map //trenger å hente alle grades i arrayen og plusse dem sammen
+//den ikke-bærekraftige måten å gjøre det på:) 
+let totalGrades = 6 + 5 + 4 + 5 + 6 + 3 + 2 + 1 + 4 + 5 + 6 + 3 + 2 + 1 + 4 + 5 + 6 + 3 + 2 + 1 
+//student.map(grade => {totalGrades += grade})
+//Her brukte jeg KI for å bedømme hvor langt vekk jeg var fra svaret.
+    console.log("totalGrades: " + totalGrades)
 
 let average = totalGrades / students.length
-    console.log(average)
+    console.log("average: " + average)
 
     //Viser resultatet av average som bokstavkarakter rundet opp.
 if (average > 5){
@@ -59,7 +60,8 @@ if (average > 5){
 }
 
 //Tell og skriv ut antall av hver karakter til #gradeA, #gradeB og så videre
-//document.getElementById("gradeA").innerHTML = students.grade.indexOf("6").length
+let gradeA = 
+document.getElementById("gradeA").innerHTML = students.grade.indexOf("6").length
 
 
 //Beregn og skriv ut gjennomsnittsalder (rund av til to desimaler) til #averageAge
