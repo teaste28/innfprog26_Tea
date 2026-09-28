@@ -35,14 +35,13 @@ const grades = [
 document.getElementById("studentCount").innerHTML = students.length
 
 //Beregn og skriv ut gjennomsnittskarakter (som bokstavkarakter, rund gjennomsnittet opp) til #averageGrade
-//den ikke-bærekraftige måten å gjøre det på:) 
-let totalGrades = 6 + 5 + 4 + 5 + 6 + 3 + 2 + 1 + 4 + 5 + 6 + 3 + 2 + 1 + 4 + 5 + 6 + 3 + 2 + 1 
-//student.map(grade => {totalGrades += grade})
-//Her brukte jeg KI for å bedømme hvor langt vekk jeg var fra svaret. #1 Link til samtalen lengst ned
-    console.log("totalGrades: " + totalGrades)
+//må gjøre om tallene i grade til numbers i stedet for string for at dette skal funke...
+let totalGrades = 0
+students.map(gradesContainer => {totalGrades += gradesContainer.grade})
+    console.log("totalGrades: ", totalGrades)
 
 let average = totalGrades / students.length
-    console.log("average: " + average)
+    console.log("average: ", average)
 
     //Viser resultatet av average som bokstavkarakter rundet opp.
 if (average > 5){
@@ -59,16 +58,41 @@ if (average > 5){
     document.getElementById("averageGrade").innerHTML = "F"
 }
 
-//Tell og skriv ut antall av hver karakter til #gradeA, #gradeB og så videre. Bruk filter
-let gradeA = ""
-document.getElementById("gradeA").innerHTML = students.grade.includes("6").length
 
+
+//Tell og skriv ut antall av hver karakter til #gradeA, #gradeB og så videre.
+const gradeA = students.filter(gradeAcontainer => gradeAcontainer.grade == 6)
+console.log("gradeA: ", gradeA)
+document.getElementById("gradeA").innerHTML = gradeA.length
+
+const gradeB = students.filter(gradeBcontainer => gradeBcontainer.grade == 5)
+document.getElementById("gradeB").innerHTML = gradeB.length
+
+const gradeC = students.filter(gradeCcontainer => gradeCcontainer.grade == 4)
+document.getElementById("gradeC").innerHTML = gradeC.length
+
+const gradeD = students.filter(gradeDcontainer => gradeDcontainer.grade == 3)
+document.getElementById("gradeD").innerHTML = gradeD.length
+
+const gradeE = students.filter(gradeEcontainer => gradeEcontainer.grade == 2)
+document.getElementById("gradeE").innerHTML = gradeE.length
+
+const gradeF = students.filter(gradeFcontainer => gradeFcontainer.grade == 1)
+document.getElementById("gradeF").innerHTML = gradeF.length
 
 //Beregn og skriv ut gjennomsnittsalder (rund av til to desimaler) til #averageAge
-let totalAge = students.age 
+let totalAge = 0
+students.map(ageContainer => {totalAge += ageContainer.age})
+console.log("totalAge: ", totalAge)
 let averageAge = totalAge / students.length
+document.getElementById("averageAge").innerHTML = averageAge
+console.log("averageAge: ", averageAge)
 
 //Tell og skriv ut antallet studenter som kommer rett fra videregående til #highSchool. Regelen for hvem som kommer rett fra videregående er at de er 19 år gamle.
-
+const highSchool = students.filter(highSchoolContainer => highSchoolContainer.age == 19)
+document.getElementById("highSchool").innerHTML = highSchool.length
 
 //Tell og skriv ut antallet studenter som har yrkeserfaring til #workExperience. Regelen for hvem som har yrkeserfaring er at workExperience er 1 eller høyere.
+const workExperience = students.filter(workExpContainer => workExpContainer.workexperience >= 1)
+document.getElementById("workExperience").innerHTML = workExperience.length
+
