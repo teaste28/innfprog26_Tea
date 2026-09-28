@@ -38,7 +38,7 @@ document.getElementById("studentCount").innerHTML = students.length
 //den ikke-bærekraftige måten å gjøre det på:) 
 let totalGrades = 6 + 5 + 4 + 5 + 6 + 3 + 2 + 1 + 4 + 5 + 6 + 3 + 2 + 1 + 4 + 5 + 6 + 3 + 2 + 1 
 //student.map(grade => {totalGrades += grade})
-//Her brukte jeg KI for å bedømme hvor langt vekk jeg var fra svaret.
+//Her brukte jeg KI for å bedømme hvor langt vekk jeg var fra svaret. #1 Link til samtalen lengst ned
     console.log("totalGrades: " + totalGrades)
 
 let average = totalGrades / students.length
@@ -59,9 +59,9 @@ if (average > 5){
     document.getElementById("averageGrade").innerHTML = "F"
 }
 
-//Tell og skriv ut antall av hver karakter til #gradeA, #gradeB og så videre
-let gradeA = 
-document.getElementById("gradeA").innerHTML = students.grade.indexOf("6").length
+//Tell og skriv ut antall av hver karakter til #gradeA, #gradeB og så videre. Bruk filter
+let gradeA = ""
+document.getElementById("gradeA").innerHTML = students.grade.includes("6").length
 
 
 //Beregn og skriv ut gjennomsnittsalder (rund av til to desimaler) til #averageAge
