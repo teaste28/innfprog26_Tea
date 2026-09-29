@@ -58,7 +58,7 @@ if (average > 5){
     document.getElementById("averageGrade").innerHTML = "F"
 }
 
-
+Hei
 
 //Tell og skriv ut antall av hver karakter til #gradeA, #gradeB og så videre.
 const gradeA = students.filter(gradeAcontainer => gradeAcontainer.grade == 6)
