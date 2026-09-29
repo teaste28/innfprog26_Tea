@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions, oppgave 1</title>
+</head>
+<body>
+
+    <script>
+    const people = ["Marius", "Tore", "Susanne", "Monica", "Arne", "Zoltan", "Beate"]
+
+    function printArraySorted (array = people) {
+        //Sortere arrayen alfabetisk
+        array.sort()
+        //lag en ny p-tag
+        const ptag = document.createElement("p")
+        //plasserer array inne i <p>-tagen
+        ptag.innerHTML = array.join(", ")
+        //plasserer <p>-tagen lengst ned i <body>-tagen
+        document.body.appendChild(ptag)
+        //Testutskrift
+        console.log("array: ", array)
+    }
+    
+    printArraySorted(people)
+
+    </script>
+</body>
+</html>
