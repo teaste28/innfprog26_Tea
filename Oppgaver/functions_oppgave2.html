@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function: Oppgave 2</title>
+</head>
+<body>
+    <h1>Functions - Oppgave 2</h1>
+    <script>
+        const people = ["Marius", "Tore", "Sussane", "Monica", "Arne", "Zoltan", "Beate"]
+        
+        function sortList(array){
+            //Sortere array
+            array.sort()
+            //lage en ul-element
+            const ulElement = document.createElement("ul")
+            //fylle ul-listen med listeelementer
+            array.map(person => {
+                //lage en <li>
+                const li = document.createElement("li")
+                //Få navnet i "person"-parameteren inn i <li>
+                li.innerHTML = person
+                //Legge <li>-elementet inn i <ul>
+                ulElement.appendChild(li)
+            })
+            
+            document.body.appendChild(ulElement)
+            console.log("ul: ", ulElement)
+        }
+        
+        sortList(people)
+    </script>
+</body>
+</html>

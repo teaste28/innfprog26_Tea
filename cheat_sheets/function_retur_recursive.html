@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Functions with retur and recursion</title>
+</head>
+<body>
+
+    <script>
+        function calculator(a, b, operator) {
+            if(operator === "add") {
+                return a + b
+            }
+            if(operator === "subtract") {
+                return a - b
+            }
+            if(operator === "multiply") {
+                return a * b
+            }
+            if(operator === "devide") {
+                return a / b
+            }
+            //hvis vi mangler operator, eller funksjonen ikke kan kjøre,  avslutt den:
+            return
+        }
+
+        //Nå kan vi lagre resultatet av calculator() i en variabel
+        const result = calculator(2,3,"add")
+
+        //Hvis vi skal skrive resultatet fra calculator til koden, må vi legge det i et HTML-element
+        const p = document.createElement("p")
+        p.innerHTML = result
+        document.body.appendChild(p)
+
+        //Testutskrift
+        console.log(calculator(88,7,"multiply"))
+
+
+        //Rekrusiv funksjon: Med mindre den har møtt en betingelse, kjører funksjonen igjen
+        function countdown(from) {
+            if(from > 0){
+                console.log(from)
+                //from = from - 1 er det samme som from--
+                from--
+                countdown(from)
+            } else {
+                return
+            }
+        }
+
+        countdown(10)
+    </script>
+</body>
+</html>
