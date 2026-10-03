@@ -83,7 +83,7 @@ let totalAge = 0
 students.map(ageContainer => {totalAge += ageContainer.age})
 console.log("totalAge: ", totalAge)
 let averageAge = totalAge / students.length
-document.getElementById("averageAge").innerHTML = averageAge
+document.getElementById("averageAge").innerHTML = averageAge.toFixed(2)
 console.log("averageAge: ", averageAge)
 
 //Tell og skriv ut antallet studenter som kommer rett fra videregående til #highSchool. Regelen for hvem som kommer rett fra videregående er at de er 19 år gamle.
