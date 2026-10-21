@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webtricks If-oppgave 2</title>
+</head>
+<body>
+    <p id="utskrift">Ingen informasjon</p>
+    <script>
+        const alder = 65
+
+        if (alder < 18) {
+            document.getElementById("utskrift").innerHTML = "Du er ikke myndig"
+        }
+        else if (alder >= 18 && alder <= 62){
+            document.getElementById("utskrift").innerHTML = "Du er myndig og klar for studier eller arbeidslivet."
+        }
+        else if (alder >= 62){
+            document.getElementById("utskrift").innerHTML = "Du er pensjonsklar!"
+        }
+    </script>
+</body>
+</html>
