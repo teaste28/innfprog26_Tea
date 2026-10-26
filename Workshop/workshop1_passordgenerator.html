@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passordgenerator</title>
+</head>
+<body>
+    <h1>Workshop 1: Passordgenerator</h1>
+    <button id="generer">Generer passord</button>
+    <p id="passordutskrift"></p>
+
+    <script>
+        // REGLER OG KONFIGURASJONER
+        let passord = ""
+        const tillateTegn = "abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ0123456789"
+
+        document.getElementById("generer").addEventListener("click", function (event){
+            // GENERER ET PASSORD
+            // lager en for loop, som regel finnes det bedre metoder å bruke en for loops
+            // for loops tar imot tre parametere, hvor starter den, når slutter den, og hva den skal gjøre, i dette tilfelle legge til 1 for hver gang
+            for(teller = 0; teller < 13; teller++) {
+                // Math er et objekt i javascript. Math.floor runder tall ned. Math.random plukker et tilfedlig tall mellom 0-1 og vi ganger det med tillatteTegn
+                const tilfeldigTegn = Math.floor(Math.random() * tillatteTegn.length)
+            }
+
+            document.getElementById("passordutskrift").innerHTML = "knappen er trykket"
+        })
+    </script>
+</body>
+</html>
