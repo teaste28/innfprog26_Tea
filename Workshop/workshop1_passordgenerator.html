@@ -7,25 +7,64 @@
 </head>
 <body>
     <h1>Workshop 1: Passordgenerator</h1>
+    <p>
+        <label for="lengde">Hvor langt skal passordet være?</label>
+        <input type="number" id="passordlengde" name="Passordlengde" value="8"/>
+    </p>
+    <p>Velg hvilke tegn passordet skal bestå av:</p>
+    <ul>
+        <li><label><input type="checkbox" id="lowercase" checked/> Små bokstaver</label></li>
+        <li><label><input type="checkbox" id="uppercase"/> Store bokstaver</label></li>
+        <li><label><input type="checkbox" id="numbers" checked/> Tall</label></li>
+        <li><label><input type="checkbox" id="specialChars"/> Spesialtegn</label></li>
+    </ul>
     <button id="generer">Generer passord</button>
     <p id="passordutskrift"></p>
 
     <script>
         // REGLER OG KONFIGURASJONER
         let passord = ""
-        const tillateTegn = "abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ0123456789"
+        const lowercase = "abcdefghijklmnopqrstuvwxyzæøå"
+        const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
+        const numbers = "0123456789"
+        const specialChars = "!#¤%&/()=? "
+        
+        let tillatteTegn = ""
+        // string funker som arrays, og vi kan derfor bruke array funksjon på dem
+
 
         document.getElementById("generer").addEventListener("click", function (event){
+            // Tømme tillatteTegn for nytt utvalg:
+            tillatteTegn = ""
+            // Sjekke hvilke kategorier som er valgt, og gjøre disse klare for utvalget:
+                if (document.getElementById("lowercase").checked === true){
+                    tillatteTegn += lowercase
+                }
+
+                // Ternary Operator
+                // En annen måte å skrive if statements. ? sier hvis det er sant, så skriver vi hva som skal skje, : sier hva som skjer hvis det ikke er sant
+                // Kan legge denne inn i en funksjon
+                document.getElementById("uppercase").checked ? tillatteTegn += uppercase : null
+                document.getElementById("numbers").checked ? tillatteTegn += numbers : null
+                document.getElementById("specialChars").checked ? tillatteTegn += specialChars : null
+
+            // Tøm passordvariabel for å gjøre klart til nytt passord:
+            passord = ""
+            // Hente ut hvpr langt passordet skal være:
+                const antall  = document.getElementById("passordlengde").value
             // GENERER ET PASSORD
             // lager en for loop, som regel finnes det bedre metoder å bruke en for loops
             // for loops tar imot tre parametere, hvor starter den, når slutter den, og hva den skal gjøre, i dette tilfelle legge til 1 for hver gang
-            for(teller = 0; teller < 13; teller++) {
+            for(teller = 0; teller < antall; teller++) {
                 // Math er et objekt i javascript. Math.floor runder tall ned. Math.random plukker et tilfedlig tall mellom 0-1 og vi ganger det med tillatteTegn
+                // denne variablen er hvordan man får noe random
                 const tilfeldigTegn = Math.floor(Math.random() * tillatteTegn.length)
+                console.log(tilfeldigTegn, tillatteTegn[tilfeldigTegn])
+                passord += tillatteTegn[tilfeldigTegn]
             }
 
-            document.getElementById("passordutskrift").innerHTML = "knappen er trykket"
+            document.getElementById("passordutskrift").innerHTML = passord
         })
     </script>
 </body>
-</html>
+</html
