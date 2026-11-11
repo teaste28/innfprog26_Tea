@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workshop 2: Fargepalettgenerator</title>
     <style>
+        body {
+            background-color: #313030;
+        }
+
         #colors{
             width: 100%;
             max-width: 900px;
@@ -19,6 +23,8 @@
             width: 31%;
             height: 150px;
             position: relative;
+            cursor: pointer;
+            cursor: hand;
         }
 
         #colors > div > span {
@@ -33,8 +39,10 @@
 </head>
 <body>
     <section id="colors">
-
+        
     </section>
+    <button id="changeAll">Bytt ut tre tilfeldige farger</button>
+
     <script>
         //Tilsatte tegn i en hex-kode:
         const chars = "ABCDEF0123456789"
@@ -59,15 +67,64 @@
             hexCodes.push(hexGenerator())
         }
         
-        //skrive ut HTML-elementer til #colors for hver farge i hexCodes:
-        hexCodes.map((h, i) => {
-            document.getElementById("colors").innerHTML += `
-            <div style="background-color: ${h}">
-                <span>${h}</span>
-            </div>
-            `
+        //Lage funksjon for å bytte farge på en bestemt index i hexCodes
+        function changeHex(index){
+            hexCodes.splice(index, 1, hexGenerator())
+            printColors()
+        }
+
+        //Lage en funksjon for å velge en tilfeldig index
+        function selectRandomIndex(array){
+            const randomIndex = Math.floor(Math.random() * array.length)
+            return randomIndex
+        }
+
+        function recursiveIndexSelector(arrayToCheck) {
+            //1. check: arrayToCheck has 3 elements
+            if(arrayToCheck.length === 3){
+                return
+            } else {
+                const indexToCheck = selectRandomIndex(hexCodes)
+                //2. check: Does indexToCheck exist in the array already?
+                if(arrayToCheck.includes(indexToCheck)){
+                    recursiveIndexSelector(arrayToCheck)
+                } else {
+                    arrayToCheck.push(indexToCheck)
+                    recursiveIndexSelector(arrayToCheck)
+                }
+            }
+        }
+
+        document.getElementById("changeAll").addEventListener("click", function(){
+            //Velg tre tilfeldig indexer mellom 0 og 5
+            const randomIndexes = []
+
+            recursiveIndexSelector(randomIndexes)
+
+            randomIndexes.map(i => hexCodes[i] = hexGenerator())
+
+            printColors()
+            
+            //Kjørt en .splice mot hexCodes for hver av de tre indexene
         })
 
+        //skrive ut HTML-elementer til #colors for hver farge i hexCodes:
+        function printColors(){
+            //Gjør klar variabel for å bygge HTML-streng
+            let colorHTML = ""
+            //Bruke .map for å bygge HTML-boks for hver farge i hexCodes-arrayen
+            hexCodes.map((h, i) => {
+                colorHTML += 
+                `<div onClick="changeHex(${i})" style="background-color: ${h}">
+                    <span>${h}</span>
+                </div>`
+            })
+            //Skriv ut ferdig HTML-streng til #colors
+            document.getElementById("colors").innerHTML = colorHTML
+
+        }
+
+        printColors()
     </script>
 </body>
 </html>
